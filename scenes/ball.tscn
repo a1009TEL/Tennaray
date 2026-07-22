@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bit82o73p5o2g"]
+
+[ext_resource type="Script" uid="uid://b7pd5cp146wb2" path="res://scenes/dots.gd" id="1_7s4qf"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_7s4qf"]
+
+[node name="dots" type="Node3D" unique_id=198980256]
+script = ExtResource("1_7s4qf")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." unique_id=1876761280]
+multimesh = SubResource("MultiMesh_7s4qf")

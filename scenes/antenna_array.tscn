@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://uqmofqcgj5h5"]
+
+[ext_resource type="Script" uid="uid://bbq4uurs223um" path="res://scripts/antenna_array.gd" id="1_phju3"]
+
+[node name="antenna_array" type="Node3D" unique_id=2005767924]
+script = ExtResource("1_phju3")
+
+[node name="Generated Mesh" type="MeshInstance3D" parent="." unique_id=1506942669]

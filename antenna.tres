@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b531fruslx4ql"]
+
+[ext_resource type="Shader" uid="uid://b7cdvv51qldrv" path="res://shaders/antenna.gdshader" id="1_gwp2s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gwp2s")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/roughness = 0.2350000111625
+shader_parameter/antennas_pos = PackedVector3Array(0, 1, 0, 0, -1, 0)
+shader_parameter/antennas_feed_coeff = PackedVector2Array(1, 0, 0, 1)
+shader_parameter/antennas_count = 2
+shader_parameter/lambda = 1.0

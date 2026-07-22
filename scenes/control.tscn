@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://c876jaedmuvq"]
+
+[ext_resource type="Script" uid="uid://cbg2jcnyf4gak" path="res://scripts/gui_main_controller.gd" id="1_5p55f"]
+[ext_resource type="Theme" uid="uid://dxxxn2ig582no" path="res://theme.tres" id="1_brbbq"]
+[ext_resource type="Shader" uid="uid://cmculr1dppn0v" path="res://shaders/legend.gdshader" id="2_r67kn"]
+[ext_resource type="Texture2D" uid="uid://buby1vj22q3vm" path="res://assets/menu.svg" id="3_tjwpk"]
+[ext_resource type="Script" uid="uid://ymbfpwiai66l" path="res://scenes/legend_numbers.gd" id="4_tjwpk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brbbq"]
+shader = ExtResource("2_r67kn")
+
+[node name="Control" type="Control" unique_id=1042941007]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_brbbq")
+script = ExtResource("1_5p55f")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=689993995]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = 346.0
+offset_bottom = 2.0
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1670798100]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1274820254]
+layout_mode = 2
+
+[node name="add" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2031495976]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Antenna Element"
+
+[node name="toggleMenu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1870130334]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 18
+toggle_mode = true
+icon = ExtResource("3_tjwpk")
+icon_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1959056349]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=770757742]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1806351007]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -34.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="hcont" type="HBoxContainer" parent="MarginContainer2" unique_id=1572707876]
+layout_mode = 2
+alignment = 2
+
+[node name="vcont" type="VBoxContainer" parent="MarginContainer2/hcont" unique_id=1570575486]
+layout_direction = 2
+layout_mode = 2
+script = ExtResource("4_tjwpk")
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2/hcont" unique_id=1503173591]
+material = SubResource("ShaderMaterial_brbbq")
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/add" to="." method="_on_add_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/toggleMenu" to="." method="_on_toggle_menu_toggled"]

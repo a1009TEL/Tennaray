@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ca2sq7dhix0v6"]
+
+[ext_resource type="FontFile" uid="uid://bewr0r3ybhcun" path="res://assets/NewCM10-Bold.otf" id="1_kr43a"]
+[ext_resource type="Shader" uid="uid://cc2jaip1jif78" path="res://shaders/grid_plane.gdshader" id="1_s037l"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kr43a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4wji"]
+render_priority = -1
+shader = ExtResource("1_s037l")
+shader_parameter/color = Color(0.26377442, 0.26996976, 0.2885717, 1)
+shader_parameter/scaling = 8.0
+shader_parameter/secondary = 5
+shader_parameter/thickness = 0.01
+shader_parameter/radius_1 = 0.285
+shader_parameter/radius_2 = 0.5
+
+[node name="plane" type="Node3D" unique_id=452485601]
+
+[node name="x" type="Label3D" parent="." unique_id=10550385]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 5, 0.001, 0)
+pixel_size = 0.0005
+render_priority = 1
+outline_render_priority = 0
+modulate = Color(0.7974407, 0.17400557, 0.26317415, 1)
+text = "+x"
+font = ExtResource("1_kr43a")
+font_size = 64
+outline_size = 24
+uppercase = true
+
+[node name="-y" type="Label3D" parent="." unique_id=1643408465]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 0, 0.001, 5)
+pixel_size = 0.0005
+render_priority = 1
+outline_render_priority = 0
+modulate = Color(0.38825333, 0.74, 0.2812, 1)
+text = "-y"
+font = ExtResource("1_kr43a")
+font_size = 64
+outline_size = 24
+uppercase = true
+
+[node name="-x" type="Label3D" parent="." unique_id=1002394779]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, -5, 0.001, 0)
+pixel_size = 0.0005
+render_priority = 1
+outline_render_priority = 0
+modulate = Color(0.7974407, 0.17400557, 0.26317415, 1)
+text = "-x"
+font = ExtResource("1_kr43a")
+font_size = 64
+outline_size = 24
+uppercase = true
+
+[node name="+y" type="Label3D" parent="." unique_id=5426430]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 0, 0.001, -5)
+pixel_size = 0.0005
+render_priority = 1
+outline_render_priority = 0
+modulate = Color(0.38825333, 0.74, 0.2812, 1)
+text = "+y"
+font = ExtResource("1_kr43a")
+font_size = 64
+outline_size = 24
+uppercase = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1430573575]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.0335629, 0.00027561188, 0.00011652708)
+mesh = SubResource("PlaneMesh_kr43a")
+surface_material_override/0 = SubResource("ShaderMaterial_c4wji")

@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://cawubvbwypkfc"]
+
+[ext_resource type="Script" uid="uid://ddy11o2mfvwft" path="res://scripts/gui_antenna_container.gd" id="1_2g6mf"]
+[ext_resource type="Theme" uid="uid://dxxxn2ig582no" path="res://theme.tres" id="1_s6wjq"]
+[ext_resource type="Texture2D" uid="uid://cs8u0p6ffiggj" path="res://assets/trash.svg" id="3_4ofqw"]
+[ext_resource type="Script" uid="uid://cv0esiit5h7vn" path="res://scenes/hide.gd" id="3_binei"]
+[ext_resource type="Texture2D" uid="uid://cvb5m45fciaad" path="res://assets/eye.svg" id="3_cs50y"]
+
+[node name="AntennaContainer" type="PanelContainer" unique_id=606821542]
+offset_right = 324.0
+offset_bottom = 234.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_s6wjq")
+script = ExtResource("1_2g6mf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1813627346]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1797995393]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=141874437]
+layout_mode = 2
+
+[node name="color" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1605507511]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88126415, 0.24454027, 0.35198894, 1)
+text = "Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=546148166]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="pos" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1175571415]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3019608, 0.8392157, 0.3647059, 1)
+text = "Position [x, y, z] (lambda)"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=226356080]
+layout_mode = 2
+
+[node name="x" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=483611255]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -30.0
+max_value = 30.0
+step = 0.01
+allow_greater = true
+allow_lesser = true
+alignment = 1
+
+[node name="y" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1892598514]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -30.0
+max_value = 30.0
+step = 0.01
+allow_greater = true
+allow_lesser = true
+alignment = 1
+
+[node name="z" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=759415154]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -30.0
+max_value = 30.0
+step = 0.01
+allow_greater = true
+allow_lesser = true
+alignment = 1
+
+[node name="feed" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1379297800]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15168703, 0.4893747, 0.9042531, 1)
+text = "Feed Coeffitient"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1055734994]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1354905839]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Magnitude (I0)"
+
+[node name="mag" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=476364390]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+step = 0.01
+value = 1.0
+allow_greater = true
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1752028134]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=431446675]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Phase (Deg)"
+
+[node name="phase" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1533548855]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -360.0
+max_value = 360.0
+allow_greater = true
+allow_lesser = true
+alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=328304542]
+layout_mode = 2
+
+[node name="remove" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2046650294]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 18
+icon = ExtResource("3_4ofqw")
+icon_alignment = 1
+
+[node name="hide" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=578445040]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/icon_max_width = 20
+toggle_mode = true
+icon = ExtResource("3_cs50y")
+icon_alignment = 1
+script = ExtResource("3_binei")
+
+[connection signal="color_changed" from="MarginContainer/VBoxContainer/HBoxContainer4/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/x" to="." method="_on_x_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/y" to="." method="_on_y_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/z" to="." method="_on_z_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/mag" to="." method="_on_mag_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/phase" to="." method="_on_phase_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/remove" to="." method="_on_remove_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer5/hide" to="." method="_on_hide_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer5/hide" to="MarginContainer/VBoxContainer/HBoxContainer5/hide" method="_on_toggled"]
